@@ -1,80 +1,48 @@
-// function espera (texto) {
-//     console.log(texto)
-// }
+// muda a cor da tela para branco e depois para azul a cada 2s
 
-// setTimeout(espera, 1000, 'Passou 1s')
+// const pintar = setInterval(() => {
 
-// =========
-
-// setTimeout(() => {
-//     console.log('testando')
-// }, 2000)
-
-// =========
-// set time out com loop para fazer um contador:
-
-// for (let i = 0; i < 20; i++) {
-//     setTimeout(() => {
-//         console.log(i)
-//     }, 1000 * i)  
-// }
-
-// =========
-
-// const btn = document.querySelector('button')
-
-// btn.addEventListener('click', handleClick)
-
-// function handleClick () {
-
-//     setTimeout(function() {
-//         console.log('aqui o this é o window:', this)
-//     }, 100)
-
-//     console.log('aqui o this é o btn:', this)
-// }
-
-// ==== use arrow function para resolver o problema do this
-
-// const btn = document.querySelector('button')
-
-// btn.addEventListener('click', handleClick)
-
-// function handleClick () {
+//     document.body.style.backgroundColor = 'blue';
+//     console.log('azul')
 
 //     setTimeout(() => {
-//         console.log('aqui o this não é mais o window:', this)
-//     }, 100)
+//         document.body.style.backgroundColor = 'red';
+//         console.log('vemelho')
+//     }, 2000);
+    
+// }, 4000)
 
-//     console.log('aqui o this é o btn:', this)
+// function mudarClasse() {
+//     document.body.classList.toggle('active');
 // }
+
+// setInterval(mudarClasse, 2000);
 
 // =========
 
-// function loop (texto) {
-//     console.log(texto)
-// }
+/**
+ * crie um cronometro utilizando o setInterval. Deve ser possível
+ * inicial, pausar e resetar (duplo clique para pausar);
+ */
 
-// setInterval(loop, 1000, 'passou 1 s');
+const timer = document.querySelector('.timer')
 
-// ===============
+timer.addEventListener('click', () => {
 
-// function loop (texto) {
-//     console.log(texto)
-// }
+    if (!timer.classList.contains('active')) {
 
-// let i = 0;
+        for (let i = 0; i < 20; i++) {
+            const cronometro = setInterval(() => {
+                console.log(i)
+            }, 1000)  
+            
+        }
+        
+        timer.classList.add('active');
 
-// const cronometro = setInterval(() => {
+    } else {
 
-//     console.log(i++);
-
-//     if (i > 10) {
-//         clearInterval(cronometro);
-//     }
-
-// },100)
-
-// ====
-
-
+        console.log('parou')
+        timer.classList.remove('active');
+    }
+})
